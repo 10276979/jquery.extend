@@ -44,7 +44,7 @@
  *     g();
  *
  * @return {object} //jQuery的延时对象
- * @for $
+ * @for module
  */
 $.fn.module = function(opt, type) {
 
