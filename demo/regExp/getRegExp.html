@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>$.getRegExp()</title>
+  <script src="../../lib/jquery-1.11.3.min.js"></script>
+  <script src="../../lib/underscore-min.js"></script>
+  <script src="../../jquery.extend.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var mailzz = $.getRegExp('email');
+var mail = '1@1.com'
+console.log(mailzz.test(mail));
+</script>
+</body>
+</html>

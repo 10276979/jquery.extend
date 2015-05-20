@@ -3,6 +3,8 @@ $.extend({
      * 如果是方法则执行
      * @for function
      * @method $.functionDo
+     * @author guosheng
+     * 
      * @param  {Function} fn        [期望传入function，传其他的也可以兼容]
      * @param  {Array}    arr       [fn参数以数组方式传入]
      * @param  {Object}   context   [执行上下文，可改变fn里面的this]
@@ -37,9 +39,13 @@ $.extend({
     functionDo : function(fn, arr, context) {
         return typeof fn === 'function' ? fn.apply(context || fn, arr) : fn;
     },
+
     /**
+     *
+     * 方法调用
      * @for function
      * @method $.functionCall  
+     * @author guosheng
      *
      * @param  {Anything} fn                [任意值，或promise对象]
      * @param  {Function} callback          [第二个函数，如果他也是一个函数则 执行callback(val)， 返回他的值作为参数传到callback]

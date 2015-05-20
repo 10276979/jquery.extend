@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "jquery.extend.js",
   "license": "MIT",
-  "description": "micro check library",
+  "description": "jquery扩展方法",
   "repository": {
     "type": "git",
     "url": "https://github.com/kyo4311/jquery.extend.git"

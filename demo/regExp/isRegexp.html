@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>$.isRegExp()</title>
+  <script src="../../lib/jquery-1.11.3.min.js"></script>
+  <script src="../../lib/underscore-min.js"></script>
+  <script src="../../jquery.extend.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var a1 = '1';
+var b1 = $.isRegExp(a1);
+console.log(b1);
+
+var b1 = /^[0-9]/;
+var b2 = $.isRegExp(b1);
+console.log(b2);
+
+</script>
+</body>
+</html>

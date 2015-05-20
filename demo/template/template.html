@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>$.template()</title>
+  <script src="../../lib/jquery-1.11.3.min.js"></script>
+  <script src="../../lib/underscore-min.js"></script>
+  <script src="../../jquery.extend.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+var tpl = '<li>姓名：<%= name%></li>';
+var str1 = $.template(tpl, {name : 'kyo'});
+console.log(str1);
+
+
+var data2 = [{
+    name : 'kyo'
+},{
+    name : 'iori'
+}];
+var str2 = $.template(tpl, data2);
+console.log(str2);
+</script>
+</body>
+</html>
