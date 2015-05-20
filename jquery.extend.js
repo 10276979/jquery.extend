@@ -1,0 +1,1 @@
+$.extend({functionDo:function(a,b,c){return"function"==typeof a?a.apply(c||a,b):a},functionCall:function(a,b,c){"object"==typeof a&&a.done?a.done(function(a){$.functionDo(b,[a],c)}):$.functionDo(b,[a],c)}});

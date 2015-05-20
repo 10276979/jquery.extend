@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../../jquery-1.11.3.min.js"></script>
+  <script src="../../underscore-min.js"></script>
+  <script src="../../require.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+require(['../../source/function'], function(){
+    //例一，值是方法返回的
+    var a = function(x, y, z) {
+      return x + y + z;
+    };
+    var aa = $.functiondo(a, [1, 2, 3]);
+    $.functionCall(aa, function(res){
+      console.log('例一，值是方法返回的', res);
+    });
+
+
+    //例二，值是原始值
+    var b = 123;
+    var bb = $.functiondo(b);
+    $.functionCall(bb, function(res){
+      console.log('例二，值是原始值', res);
+    });
+
+    //例三，值是延时对象
+    var c = function(name) {
+      var dtd = $.Deferred(); //延时对象
+      setTimeout(function(){
+          dtd.resolve({name: name, age : 18}); // 改变Deferred对象的执行状态
+      }, 1000)     
+      return dtd.promise();
+    };
+    var cc = $.functiondo(c, ['xidada']);
+    $.functionCall(cc, function(res){
+      console.log('例三，值是延时对象', res);
+    });
+
+    //例四, 改变callback是里面的this
+    $.functionCall(aa, function(res){
+      console.log('例四，改变this', res, this);
+    }, {name : 'xidada'});
+     
+});
+</script>
+</body>
+</html>
