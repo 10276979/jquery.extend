@@ -2,19 +2,26 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>$.addCss()</title>
+  <title>$().on()</title>
   <script src="../../lib/jquery-1.11.3.min.js"></script>
   <script src="../../lib/underscore-min.js"></script>
   <script src="../../jquery.extend.js"></script>
 </head>
 <body>
-<div id="box">
-这里的字会是红色吗？
+<div style="border:1px solid red; height: 5000px;">
+    abc
 </div>
-<div id="lottery-box">abc</div>
 <script type="text/javascript">
-$.addCss('#box{color:red;}');
-$.addCss('http://static.huanhuba.com/css/lecai/hhb.min.css');
+//3秒内，最多点击一次
+$('body').On('click', 'div', function(){
+    console.log(1);
+}, 3000);
+
+
+//滚动的时候，200毫秒执行一次
+$(window).On('scroll', function(){
+    console.log('scroll');
+}, 200);
 </script>
 </body>
 </html>
