@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>module - 渲染一个模块</title>
+<script src="../../lib/jquery-1.11.3.min.js"></script>
+<script src="../../lib/underscore-min.js"></script>
+<script src="../../jquery.extend.js"></script>
+<style>
+.box{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+1.data设定数据来源<br/>
+2.template负责html结构
+<div class="box"></div>
+
+<script>
+/*
+   作者：本相 9169775@qq.com
+*/
+var testmodule = $('.box').module({
+    data : {
+        name : '小明',
+        age : '18'
+    },
+    template : function(){
+        return '我叫<%= name %>，今年<%= age %>岁。';
+    }
+});
+testmodule();
+</script>
+</body>
+</html>

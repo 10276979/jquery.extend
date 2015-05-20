@@ -20,8 +20,12 @@ $('body').On('click', 'div', function(){
 
 //滚动的时候，200毫秒执行一次
 $(window).On('scroll', function(){
-    console.log('scroll');
+    console.log('On - scroll');
 }, 200);
+
+$(window).on('scroll', function(){
+    console.log('On');
+});
 </script>
 </body>
 </html>

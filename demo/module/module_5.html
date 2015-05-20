@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>module - 滚动加载</title>
+<script src="../../lib/jquery-1.11.3.min.js"></script>
+<script src="../../lib/underscore-min.js"></script>
+<script src="../../jquery.extend.js"></script>
+<style>
+</style>
+</head>
+<body>
+1.如果这块内容不是在首屏，我们可以让他滚动加载，当然也可以全设置为滚动加载。
+<div style="height: 2000px;"></div>
+<div class="box"></div>
+<script>
+/*
+   作者：本相 9169775@qq.com
+*/
+var testmodule = $('.box').module({
+    css : '.box1 img{width:100px; height:100px;}',
+    template : function(){
+        return '<div class="box1"><img src="http://pic22.nipic.com/20120715/3247605_105802332102_2.jpg" width="100%" /></div>';
+    }
+}, 'scroll');
+testmodule();
+</script>
+</body>
+</html>

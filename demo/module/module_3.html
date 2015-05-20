@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>module - 加css</title>
+<script src="../../lib/jquery-1.11.3.min.js"></script>
+<script src="../../lib/underscore-min.js"></script>
+<script src="../../jquery.extend.js"></script>
+<style>
+</style>
+</head>
+<body>
+1.来添加css样式，如果一个模块的样式是独立的，比如说网站左边的浮动菜单，当需要的时候，用js加载，不需要的时候js下掉即可，这样的情况，建议把css也写在js里面，方便维护。
+
+<div class="box"></div>
+<script>
+/*
+   作者：本相 9169775@qq.com
+*/
+var testmodule = $('.box').module({
+    css : '.box{width: 100px;height: 100px;border: 1px solid red;}.float-div{color: red;}',
+    template : function(){
+        return '<div class="float-div">abc</div>';
+    }
+});
+testmodule();
+</script>
+</body>
+</html>

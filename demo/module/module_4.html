@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>module - 延后加载</title>
+<script src="../../lib/jquery-1.11.3.min.js"></script>
+<script src="../../lib/underscore-min.js"></script>
+<script src="../../jquery.extend.js"></script>
+<style>
+</style>
+</head>
+<body>
+1.如果这块内容不是重要，而且在首屏，我们可以让他延后加载。
+
+<div class="box"></div>
+<script>
+/*
+   作者：本相 9169775@qq.com
+*/
+var testmodule = $('.box').module({
+    css : '.box{width: 100px;height: 100px;border: 1px solid red;}.float-div{color: red;}',
+    template : function(){
+        return '<div class="float-div">abc</div>';
+    }
+}, 1000);
+testmodule();
+</script>
+</body>
+</html>

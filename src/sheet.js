@@ -1,4 +1,4 @@
-(function($){
+(function(){
     var sheetRoot; 
     var styleSheets;
 
@@ -58,8 +58,10 @@
             if ($.testRegExp('url', value)) {
                 loadStyle(value);
             } else {
-                addRule(value);
+                if (value) {
+                    addRule(value);
+                }
             }
         }
     });
-}($));
+}());

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>module - 数据是数组模块</title>
+<script src="../../lib/jquery-1.11.3.min.js"></script>
+<script src="../../lib/underscore-min.js"></script>
+<script src="../../jquery.extend.js"></script>
+<style>
+ul,li{margin: 0; padding: 0; list-style: none;}
+.box{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+1.data设定数据来源，数据可是数组<br/>
+2.template负责html结构
+<ul class="box">
+    
+</ul>
+
+<script>
+/*
+   作者：本相 9169775@qq.com
+*/
+var testmodule = $('.box').module({
+    data : [{
+        name : '小明',
+        age : '18'
+    },{
+        name : '小红',
+        age : '15'
+    },{
+        name : '小黄',
+        age : '12'
+    }],
+    template : function(){
+        return '<li>我叫<%= name %>，今年<%= age %>岁。</li>';
+    }
+});
+testmodule();
+</script>
+</body>
+</html>

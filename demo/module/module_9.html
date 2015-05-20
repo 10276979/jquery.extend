@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>module - 数据是延后给的</title>
+<script src="../../lib/jquery-1.11.3.min.js"></script>
+<script src="../../lib/underscore-min.js"></script>
+<script src="../../jquery.extend.js"></script>
+<style>
+ul,li{margin: 0; padding: 0; list-style: none;}
+.box{
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+数据是延后给的，比如说是ajax
+<ul class="box">
+    
+</ul>
+<script>
+/*
+   作者：本相 9169775@qq.com
+*/
+var testmodule = $('.box').module({
+    data : function(){
+        var dtd = $.Deferred(); //延时对象
+        setTimeout(function(){
+            dtd.resolve({name: 'kyo'}); // 改变Deferred对象的执行状态
+        }, 1000)     
+        return dtd.promise();
+    },
+    template : function(){
+        return '<li><%= name %></li>';
+    },
+    //参数传在这里
+    event : function(no){
+        $(this).on('click', 'a', function(){
+            var my = $(this),
+                id = my.data('id');
+            alert(no + id);
+        });
+    }
+});
+
+testmodule();
+
+
+</script>
+</body>
+</html>

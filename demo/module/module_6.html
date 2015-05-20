@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>module - 内嵌css</title>
+<script src="../../lib/jquery-1.11.3.min.js"></script>
+<script src="../../lib/underscore-min.js"></script>
+<script src="../../jquery.extend.js"></script>
+<style>
+.box1{background: #ccc;}
+</style>
+</head>
+<body>
+1.可以控制每个模块的加载顺序
+<div class="box1"></div>
+<div class="box2"></div>
+
+<script>
+/*
+   作者：本相 9169775@qq.com
+*/
+var box2 = $('.box2').module({
+    css : '.box1 img{width:100px; height:100px;}',
+    template : function(){
+        return '<div>box2先出来</div>';
+    }
+}, 1000);
+
+var box1 = $('.box1').module({
+    template : function(){
+        return 'box1出现吧！';
+    }
+}, 1000);
+
+box2().done(function(){
+    box1();
+});
+</script>
+</body>
+</html>
