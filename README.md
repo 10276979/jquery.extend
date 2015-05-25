@@ -191,6 +191,10 @@ var str2 = $.template(tpl, data2);
 console.log(str2);
 ```
 
+### 杂项
+1. 希望得到大家的支持，给个star吧
+2. QQ: 9169775 大家可以一起交流
+3. QQ群：8685914 
 
 
 
