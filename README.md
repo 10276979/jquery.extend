@@ -44,3 +44,41 @@ var funD = 123;
 var funDOutPub = $.functionDo(funD);
 console.log(funDOutPub);
 ```
+### $.functionCall ( fn  callback  context ) Undefined
+把fn执行的值，返回到callback的参数里面。
+```js
+//例一，值是方法返回的
+ var a = function(x, y, z) {
+     return x + y + z;
+ };
+ var aa = $.functionDo(a, [1, 2, 3]);
+ $.functionCall(aa, function(res){
+     console.log('例一，值是方法返回的', res);
+ });
+ 
+ 
+ //例二，值是原始值
+ var b = 123;
+ var bb = $.functionDo(b);
+ $.functionCall(bb, function(res){
+     console.log('例二，值是原始值', res);
+ });
+ 
+ //例三，值是延时对象
+ var c = function(name) {
+     var dtd = $.Deferred(); //延时对象
+     setTimeout(function(){
+         dtd.resolve({name: name, age : 18}); // 改变Deferred对象的执行状态
+     }, 1000)     
+     return dtd.promise();
+ };
+ var cc = $.functionDo(c, ['xidada']);
+ $.functionCall(cc, function(res){
+     console.log('例三，值是延时对象', res);
+ });
+ 
+ //例四, 改变callback是里面的this
+ $.functionCall(aa, function(res){
+     console.log('例四，改变this', res, this);
+ }, {name : 'xidada'});
+```
