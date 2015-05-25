@@ -82,7 +82,7 @@ console.log(funDOutPub);
 ```
 
 ## $().module ( options  [type] ) Object
-生成一个模块
+生成一个模块.
 ```js
 //定义一个模块方法
 var f = $('#scroll').module({
@@ -115,4 +115,24 @@ var g = $('#lazyLoad').module({
     }
     }, 3000);
 g();
+```
+
+## $().On ( event  [selector]  [data]  handler(eventObject)  [lazytime] ) => jQuery
+jquery on事件的改造，增加lazytime，在一定时间内只执行一次，需要引入underscore.js
+```js
+//3秒内，最多点击一次
+$('body').On('click', 'div', function(){
+    alert(1);
+}, 3000);
+
+//滚动的时候，200毫秒执行一次
+$(window).On('scroll', function(){
+    //do something
+}, 200);
+
+//传入data
+function myHandler( event ) {
+    alert( event.data.foo );
+}
+$('p').On('click', {foo : 'bar'}, myHandler, 1000);
 ```
