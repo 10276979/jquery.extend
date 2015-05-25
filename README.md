@@ -13,9 +13,7 @@
 $.addCss('body{font-size:16px;}');
 $.addCss('http://static.abc.com/css.css');
 ```
-
-## function
-### $.functionDo(fn)
+## $.functionDo ( fn  arr  context ) 不一定
 如果fn是一个函数，则返回函数执行后的值，否则直接返回fn
 ```js
 //例一：是函数就执行
@@ -44,7 +42,7 @@ var funD = 123;
 var funDOutPub = $.functionDo(funD);
 console.log(funDOutPub);
 ```
-### $.functionCall ( fn  callback  context ) Undefined
+## $.functionCall ( fn  callback  context ) Undefined
 把fn执行的值，返回到callback的参数里面。
 ```js
 //例一，值是方法返回的
