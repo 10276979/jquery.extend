@@ -136,3 +136,63 @@ function myHandler( event ) {
 }
 $('p').On('click', {foo : 'bar'}, myHandler, 1000);
 ```
+### $.getRegExp ( key ) RegExp
+取常用正则表达式
+```js
+var z1 = $.getRegExp('email'); //tel | phone | qq | email | url | idcard
+console.log(z1);
+```
+
+### $.isRegExp ( value ) Boolean
+判断是否为正则表达式
+```js
+var a1 = '1';
+var b1 = $.isRegExp(a1);
+console.log(b1);
+```
+
+### $.testRegExp ( value  string )
+测试字符串是否能通过正则表达式
+```js
+//如果正则
+var out1 = $.testRegExp(/[0-9]/, '091123');
+console.log(out1);
+var out2 = $.testRegExp(/[0-9]/, 'abc');
+console.log(out2);
+
+
+//如果key
+var out3 = $.testRegExp('email', '1@163.com');
+console.log(out3);
+var out4 = $.testRegExp('email', '111#qq.com');
+console.log(out4);
+
+
+//如果其他值
+var out5 = $.testRegExp('', '1@163.com');
+console.log(out5);
+```
+
+### $.template ( template  data ) String
+模板+数据生成字符串
+
+```js
+var tpl = '<li>姓名：<%= name%></li>';
+var str1 = $.template(tpl, {name : 'kyo'});
+console.log(str1);
+
+
+var data2 = [{
+    name : 'kyo'
+},{
+    name : 'iori'
+}];
+var str2 = $.template(tpl, data2);
+console.log(str2);
+```
+
+
+
+
+
+
