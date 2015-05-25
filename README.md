@@ -1,7 +1,10 @@
 # jquery.extend 对jquery扩展了几个方法。
 
 ###编译文档
-1. 克隆项目: git clone https://github.com/kyo4311/jquery.extend.git （需要git）
+1. 克隆项目: 
+```html
+git clone https://github.com/kyo4311/jquery.extend.git （需要git）
+```
 2. 安装包：转到项目目录 npm install (需要node)
 3. 编译文档：转到项目目录 运行grunt命令 (需要gurnt)
 
