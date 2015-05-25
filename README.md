@@ -225,6 +225,7 @@ console.log(str2);
 1. 希望得到大家的支持，给个star吧
 2. QQ: 9169775 大家可以一起交流
 3. QQ群：8685914 
+4. 项目网站：http://kyo4311.github.io/jquery.extend/
 
 
 
