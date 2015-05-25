@@ -80,3 +80,39 @@ console.log(funDOutPub);
      console.log('例四，改变this', res, this);
  }, {name : 'xidada'});
 ```
+
+## $().module ( options  [type] ) Object
+生成一个模块
+```js
+//定义一个模块方法
+var f = $('#scroll').module({
+    data : { text : 'hehe'},
+    template : function (){
+        return '<%= text %>';
+    },
+    css : function () {
+        return '#scroll{color:#fff;}';
+    },
+    event : function(){
+         //需要执行的事件
+    }
+}, 'scroll');
+
+//执行f这个方法的操作
+f();
+
+//定义一个延时加载的模块
+var g = $('#lazyLoad').module({
+    data : {text : 'hehe'},
+    template : function (){
+        return '<%= text %>';
+    },
+    css : function () {
+        return '#lazyLoad{color:#fff;}';
+    },
+    event : function(){
+        //需要执行的事件
+    }
+    }, 3000);
+g();
+```
