@@ -3,16 +3,19 @@
 ###编译文档
 1.克隆项目: （需要git）
 ```html
-git clone https://github.com/kyo4311/jquery.extend.git 
+git clone https://github.com/kyo4311/jquery.extend.git
 ```
 2.安装包：转到项目目录 (需要node)
 ```html
 npm install
 ```
+https://nodejs.org/
+
 3.编译文档：转到项目目录 运行grunt命令
 ```html
 gurnt
 ```
+http://gruntjs.com/
 
 如果只想用这些方法，那么只要下载js,然后看demo使用即可，当然看文档可能会更方便一些。
 
