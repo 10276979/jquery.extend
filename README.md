@@ -13,3 +13,34 @@
 $.addCss('body{font-size:16px;}');
 $.addCss('http://static.abc.com/css.css');
 ```
+
+## function
+### $.functionDo(fn)
+如果fn是一个函数，则返回函数执行后的值，否则直接返回fn
+```js
+//例一：是函数就执行
+var funA = function(){
+    console.log('第一个例子：是函数就执行');
+};
+$.functionDo(funA);
+
+//例二：函数需要传参
+var funB = function(a, b){
+    console.log('第二个例子传入参值为:', a, b);
+    return a * b;
+};
+var funBOut = $.functionDo(funB, [8, 8]);
+console.log('执行后是有返回值的:', funBOut);
+
+//例三：改变函数体里面的this
+var funC = function(a, b){
+    console.log('第三个例子:', a, b, this);
+};
+
+$.functionDo(funC, [10, 10], {name: 'hello'});
+
+//例四：传入其他值返回原值
+var funD = 123;
+var funDOutPub = $.functionDo(funD);
+console.log(funDOutPub);
+```
