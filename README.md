@@ -21,6 +21,33 @@ gurnt
 $.addCss('body{font-size:16px;}');
 $.addCss('http://static.abc.com/css.css');
 ```
+
+
+### $().datalazy () Object
+html懒加载
+```html
+<div class="box">
+    <textarea>
+     <div class="box5">
+        <ul>
+            <li><img src="http://img.juimg.com/tuku/yulantu/120926/219049-12092612054324.jpg" width="180" height="180" /></li>
+            <li><img src="http://pic49.nipic.com/file/20140928/4949133_154446716000_2.jpg" width="180" height="180"/></li>
+            <li><img src="http://pic33.nipic.com/20130830/4187943_204109387108_2.jpg" width="180" height="180"/></li>
+            <li><img src="http://pic4.nipic.com/20090929/3419500_173433411961_2.jpg" width="180" height="180"/></li>
+            <li><img src="http://pic41.nipic.com/20140602/14680244_170255376100_2.jpg" width="180" height="180"/></li>
+        </ul>
+    </div>
+    <div>这些区块只有在滚动下来的时候，才会渲染内容。</div>
+    </textarea>
+</div>
+```
+
+```js
+$('.box').datalazy();
+```
+
+
+
 ### $.functionDo ( fn  arr  context ) 不一定
 如果fn是一个函数，则返回函数执行后的值，否则直接返回fn
 ```js
@@ -90,28 +117,6 @@ console.log(funDOutPub);
 ```
 
 
-### $().datalazy () Object
-html懒加载
-```html
-<div class="box">
-    <textarea>
-     <div class="box5">
-        <ul>
-            <li><img src="http://img.juimg.com/tuku/yulantu/120926/219049-12092612054324.jpg" width="180" height="180" /></li>
-            <li><img src="http://pic49.nipic.com/file/20140928/4949133_154446716000_2.jpg" width="180" height="180"/></li>
-            <li><img src="http://pic33.nipic.com/20130830/4187943_204109387108_2.jpg" width="180" height="180"/></li>
-            <li><img src="http://pic4.nipic.com/20090929/3419500_173433411961_2.jpg" width="180" height="180"/></li>
-            <li><img src="http://pic41.nipic.com/20140602/14680244_170255376100_2.jpg" width="180" height="180"/></li>
-        </ul>
-    </div>
-    <div>这些区块只有在滚动下来的时候，才会渲染内容。</div>
-    </textarea>
-</div>
-```
-
-```js
-$('.box').datalazy();
-```
 
 ### $().module ( options  [type] ) Object
 生成一个模块.
