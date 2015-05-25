@@ -1,19 +1,19 @@
 # jquery.extend 对jquery扩展了几个方法。
 
-##编译文档
+###编译文档
 1. 克隆项目: git clone https://github.com/kyo4311/jquery.extend.git （需要git）
 2. 安装包：转到项目目录 npm install (需要node)
 3. 编译文档：转到项目目录 运行grunt命令 (需要gurnt)
 
 如果只想用这些方法，那么只要下载js,然后看demo使用即可，当然看文档可能会更方便一些。
 
-## $.addCss()
+### $.addCss()
 向页面添加css样式或css地址。
 ```js
 $.addCss('body{font-size:16px;}');
 $.addCss('http://static.abc.com/css.css');
 ```
-## $.functionDo ( fn  arr  context ) 不一定
+### $.functionDo ( fn  arr  context ) 不一定
 如果fn是一个函数，则返回函数执行后的值，否则直接返回fn
 ```js
 //例一：是函数就执行
@@ -42,7 +42,7 @@ var funD = 123;
 var funDOutPub = $.functionDo(funD);
 console.log(funDOutPub);
 ```
-## $.functionCall ( fn  callback  context ) Undefined
+### $.functionCall ( fn  callback  context ) Undefined
 把fn执行的值，返回到callback的参数里面。
 ```js
 //例一，值是方法返回的
@@ -81,7 +81,7 @@ console.log(funDOutPub);
  }, {name : 'xidada'});
 ```
 
-## $().module ( options  [type] ) Object
+### $().module ( options  [type] ) Object
 生成一个模块.
 ```js
 //定义一个模块方法
@@ -117,7 +117,7 @@ var g = $('#lazyLoad').module({
 g();
 ```
 
-## $().On ( event  [selector]  [data]  handler(eventObject)  [lazytime] ) => jQuery
+### $().On ( event  [selector]  [data]  handler(eventObject)  [lazytime] ) => jQuery
 jquery on事件的改造，增加lazytime，在一定时间内只执行一次，需要引入underscore.js
 ```js
 //3秒内，最多点击一次
