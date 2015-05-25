@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Jquery.extend by kyo4311</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Jquery.extend</h1>
+      <h2 class="project-tagline">扩展了一些jquery方法</h2>
+      <a href="https://github.com/kyo4311/jquery.extend" class="btn">View on GitHub</a>
+      <a href="https://github.com/kyo4311/jquery.extend/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/kyo4311/jquery.extend/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="jqueryextend-对jquery扩展了几个方法" class="anchor" href="#jqueryextend-%E5%AF%B9jquery%E6%89%A9%E5%B1%95%E4%BA%86%E5%87%A0%E4%B8%AA%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>jquery.extend 对jquery扩展了几个方法。</h1>
+
+<h3>
+<a id="编译文档" class="anchor" href="#%E7%BC%96%E8%AF%91%E6%96%87%E6%A1%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>编译文档</h3>
+
+<p>1.克隆项目: （需要git）</p>
+
+<div class="highlight highlight-html"><pre>git clone https://github.com/kyo4311/jquery.extend.git</pre></div>
+
+<p>2.安装包：转到项目目录 (需要node) <a href="https://nodejs.org/">https://nodejs.org/</a></p>
+
+<div class="highlight highlight-html"><pre>npm install</pre></div>
+
+<p>3.编译文档：转到项目目录 运行grunt命令 <a href="http://gruntjs.com/">http://gruntjs.com/</a></p>
+
+<div class="highlight highlight-html"><pre>gurnt</pre></div>
+
+<p>如果只想用这些方法，那么只要下载js,然后看demo使用即可，当然看文档可能会更方便一些。</p>
+
+<h3>
+<a id="addcss" class="anchor" href="#addcss" aria-hidden="true"><span class="octicon octicon-link"></span></a>$.addCss()</h3>
+
+<p>向页面添加css样式或css地址。</p>
+
+<div class="highlight highlight-js"><pre>$.addCss(<span class="pl-s"><span class="pl-pds">'</span>body{font-size:16px;}<span class="pl-pds">'</span></span>);
+$.addCss(<span class="pl-s"><span class="pl-pds">'</span>http://static.abc.com/css.css<span class="pl-pds">'</span></span>);</pre></div>
+
+<h3>
+<a id="datalazy--object" class="anchor" href="#datalazy--object" aria-hidden="true"><span class="octicon octicon-link"></span></a>$().datalazy () Object</h3>
+
+<p>html懒加载</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>box<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">textarea</span>&gt;
+        &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>box2<span class="pl-pds">"</span></span>&gt;
+            &lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>http://pic.nipic.com/2008-07-15/2008715145556818_2.jpg<span class="pl-pds">"</span></span> <span class="pl-e">width</span>=<span class="pl-s"><span class="pl-pds">"</span>100%<span class="pl-pds">"</span></span> /&gt;
+        &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">textarea</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<div class="highlight highlight-js"><pre>$(<span class="pl-s"><span class="pl-pds">'</span>.box<span class="pl-pds">'</span></span>).datalazy();</pre></div>
+
+<h3>
+<a id="functiondo--fn--arr--context--不一定" class="anchor" href="#functiondo--fn--arr--context--%E4%B8%8D%E4%B8%80%E5%AE%9A" aria-hidden="true"><span class="octicon octicon-link"></span></a>$.functionDo ( fn  arr  context ) 不一定</h3>
+
+<p>如果fn是一个函数，则返回函数执行后的值，否则直接返回fn</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-c">//例一：是函数就执行</span>
+<span class="pl-k">var</span> <span class="pl-en">funA</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>第一个例子：是函数就执行<span class="pl-pds">'</span></span>);
+};
+$.functionDo(funA);
+
+<span class="pl-c">//例二：函数需要传参</span>
+<span class="pl-k">var</span> <span class="pl-en">funB</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">a</span>, <span class="pl-smi">b</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>第二个例子传入参值为:<span class="pl-pds">'</span></span>, a, b);
+    <span class="pl-k">return</span> a <span class="pl-k">*</span> b;
+};
+<span class="pl-k">var</span> funBOut <span class="pl-k">=</span> $.functionDo(funB, [<span class="pl-c1">8</span>, <span class="pl-c1">8</span>]);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>执行后是有返回值的:<span class="pl-pds">'</span></span>, funBOut);
+
+<span class="pl-c">//例三：改变函数体里面的this</span>
+<span class="pl-k">var</span> <span class="pl-en">funC</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">a</span>, <span class="pl-smi">b</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>第三个例子:<span class="pl-pds">'</span></span>, a, b, <span class="pl-v">this</span>);
+};
+
+$.functionDo(funC, [<span class="pl-c1">10</span>, <span class="pl-c1">10</span>], {name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>hello<span class="pl-pds">'</span></span>});
+
+<span class="pl-c">//例四：传入其他值返回原值</span>
+<span class="pl-k">var</span> funD <span class="pl-k">=</span> <span class="pl-c1">123</span>;
+<span class="pl-k">var</span> funDOutPub <span class="pl-k">=</span> $.functionDo(funD);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(funDOutPub);</pre></div>
+
+<h3>
+<a id="functioncall--fn--callback--context--undefined" class="anchor" href="#functioncall--fn--callback--context--undefined" aria-hidden="true"><span class="octicon octicon-link"></span></a>$.functionCall ( fn  callback  context ) Undefined</h3>
+
+<p>把fn执行的值，返回到callback的参数里面。</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-c">//例一，值是方法返回的</span>
+ <span class="pl-k">var</span> <span class="pl-en">a</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">x</span>, <span class="pl-smi">y</span>, <span class="pl-smi">z</span>) {
+     <span class="pl-k">return</span> x <span class="pl-k">+</span> y <span class="pl-k">+</span> z;
+ };
+ <span class="pl-k">var</span> aa <span class="pl-k">=</span> $.functionDo(a, [<span class="pl-c1">1</span>, <span class="pl-c1">2</span>, <span class="pl-c1">3</span>]);
+ $.functionCall(aa, <span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+     <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>例一，值是方法返回的<span class="pl-pds">'</span></span>, res);
+ });
+
+
+ <span class="pl-c">//例二，值是原始值</span>
+ <span class="pl-k">var</span> b <span class="pl-k">=</span> <span class="pl-c1">123</span>;
+ <span class="pl-k">var</span> bb <span class="pl-k">=</span> $.functionDo(b);
+ $.functionCall(bb, <span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+     <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>例二，值是原始值<span class="pl-pds">'</span></span>, res);
+ });
+
+ <span class="pl-c">//例三，值是延时对象</span>
+ <span class="pl-k">var</span> <span class="pl-en">c</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">name</span>) {
+     <span class="pl-k">var</span> dtd <span class="pl-k">=</span> $.Deferred(); <span class="pl-c">//延时对象</span>
+     <span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span>(){
+         dtd.resolve({name<span class="pl-k">:</span> name, age <span class="pl-k">:</span> <span class="pl-c1">18</span>}); <span class="pl-c">// 改变Deferred对象的执行状态</span>
+     }, <span class="pl-c1">1000</span>)     
+     <span class="pl-k">return</span> dtd.promise();
+ };
+ <span class="pl-k">var</span> cc <span class="pl-k">=</span> $.functionDo(c, [<span class="pl-s"><span class="pl-pds">'</span>xidada<span class="pl-pds">'</span></span>]);
+ $.functionCall(cc, <span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+     <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>例三，值是延时对象<span class="pl-pds">'</span></span>, res);
+ });
+
+ <span class="pl-c">//例四, 改变callback是里面的this</span>
+ $.functionCall(aa, <span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+     <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>例四，改变this<span class="pl-pds">'</span></span>, res, <span class="pl-v">this</span>);
+ }, {name <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>xidada<span class="pl-pds">'</span></span>});</pre></div>
+
+<h3>
+<a id="module--options--type--object" class="anchor" href="#module--options--type--object" aria-hidden="true"><span class="octicon octicon-link"></span></a>$().module ( options  [type] ) Object</h3>
+
+<p>生成一个模块.</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-c">//定义一个模块方法</span>
+<span class="pl-k">var</span> f <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>#scroll<span class="pl-pds">'</span></span>).module({
+    data <span class="pl-k">:</span> { text <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>hehe<span class="pl-pds">'</span></span>},
+    <span class="pl-en">template</span> : <span class="pl-k">function</span> (){
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;%= text %&gt;<span class="pl-pds">'</span></span>;
+    },
+    <span class="pl-en">css</span> : <span class="pl-k">function</span> () {
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>#scroll{color:#fff;}<span class="pl-pds">'</span></span>;
+    },
+    <span class="pl-en">event</span> : <span class="pl-k">function</span>(){
+         <span class="pl-c">//需要执行的事件</span>
+    }
+}, <span class="pl-s"><span class="pl-pds">'</span>scroll<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">//执行f这个方法的操作</span>
+f();
+
+<span class="pl-c">//定义一个延时加载的模块</span>
+<span class="pl-k">var</span> g <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>#lazyLoad<span class="pl-pds">'</span></span>).module({
+    data <span class="pl-k">:</span> {text <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>hehe<span class="pl-pds">'</span></span>},
+    <span class="pl-en">template</span> : <span class="pl-k">function</span> (){
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;%= text %&gt;<span class="pl-pds">'</span></span>;
+    },
+    <span class="pl-en">css</span> : <span class="pl-k">function</span> () {
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>#lazyLoad{color:#fff;}<span class="pl-pds">'</span></span>;
+    },
+    <span class="pl-en">event</span> : <span class="pl-k">function</span>(){
+        <span class="pl-c">//需要执行的事件</span>
+    }
+    }, <span class="pl-c1">3000</span>);
+g();</pre></div>
+
+<h3>
+<a id="on--event--selector--data--handlereventobject--lazytime---jquery" class="anchor" href="#on--event--selector--data--handlereventobject--lazytime---jquery" aria-hidden="true"><span class="octicon octicon-link"></span></a>$().On ( event  [selector]  [data]  handler(eventObject)  [lazytime] ) =&gt; jQuery</h3>
+
+<p>jquery on事件的改造，增加lazytime，在一定时间内只执行一次，需要引入underscore.js</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-c">//3秒内，最多点击一次</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>).On(<span class="pl-s"><span class="pl-pds">'</span>click<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>div<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(){
+    <span class="pl-c1">alert</span>(<span class="pl-c1">1</span>);
+}, <span class="pl-c1">3000</span>);
+
+<span class="pl-c">//滚动的时候，200毫秒执行一次</span>
+$(<span class="pl-c1">window</span>).On(<span class="pl-s"><span class="pl-pds">'</span>scroll<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(){
+    <span class="pl-c">//do something</span>
+}, <span class="pl-c1">200</span>);
+
+<span class="pl-c">//传入data</span>
+<span class="pl-k">function</span> <span class="pl-en">myHandler</span>( <span class="pl-smi">event</span> ) {
+    <span class="pl-c1">alert</span>( <span class="pl-c1">event</span>.<span class="pl-c1">data</span>.foo );
+}
+$(<span class="pl-s"><span class="pl-pds">'</span>p<span class="pl-pds">'</span></span>).On(<span class="pl-s"><span class="pl-pds">'</span>click<span class="pl-pds">'</span></span>, {foo <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>bar<span class="pl-pds">'</span></span>}, myHandler, <span class="pl-c1">1000</span>);</pre></div>
+
+<h3>
+<a id="getregexp--key--regexp" class="anchor" href="#getregexp--key--regexp" aria-hidden="true"><span class="octicon octicon-link"></span></a>$.getRegExp ( key ) RegExp</h3>
+
+<p>取常用正则表达式</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> z1 <span class="pl-k">=</span> $.getRegExp(<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>); <span class="pl-c">//tel | phone | qq | email | url | idcard</span>
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(z1);</pre></div>
+
+<h3>
+<a id="isregexp--value--boolean" class="anchor" href="#isregexp--value--boolean" aria-hidden="true"><span class="octicon octicon-link"></span></a>$.isRegExp ( value ) Boolean</h3>
+
+<p>判断是否为正则表达式</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> a1 <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>;
+<span class="pl-k">var</span> b1 <span class="pl-k">=</span> $.isRegExp(a1);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(b1);</pre></div>
+
+<h3>
+<a id="testregexp--value--string-" class="anchor" href="#testregexp--value--string-" aria-hidden="true"><span class="octicon octicon-link"></span></a>$.testRegExp ( value  string )</h3>
+
+<p>测试字符串是否能通过正则表达式</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-c">//如果正则</span>
+<span class="pl-k">var</span> out1 <span class="pl-k">=</span> $.testRegExp(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[<span class="pl-c1">0-9</span>]</span><span class="pl-pds">/</span></span>, <span class="pl-s"><span class="pl-pds">'</span>091123<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(out1);
+<span class="pl-k">var</span> out2 <span class="pl-k">=</span> $.testRegExp(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[<span class="pl-c1">0-9</span>]</span><span class="pl-pds">/</span></span>, <span class="pl-s"><span class="pl-pds">'</span>abc<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(out2);
+
+
+<span class="pl-c">//如果key</span>
+<span class="pl-k">var</span> out3 <span class="pl-k">=</span> $.testRegExp(<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>1@163.com<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(out3);
+<span class="pl-k">var</span> out4 <span class="pl-k">=</span> $.testRegExp(<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>111#qq.com<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(out4);
+
+
+<span class="pl-c">//如果其他值</span>
+<span class="pl-k">var</span> out5 <span class="pl-k">=</span> $.testRegExp(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>1@163.com<span class="pl-pds">'</span></span>);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(out5);</pre></div>
+
+<h3>
+<a id="template--template--data--string" class="anchor" href="#template--template--data--string" aria-hidden="true"><span class="octicon octicon-link"></span></a>$.template ( template  data ) String</h3>
+
+<p>模板+数据生成字符串</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> tpl <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;li&gt;姓名：&lt;%= name%&gt;&lt;/li&gt;<span class="pl-pds">'</span></span>;
+<span class="pl-k">var</span> str1 <span class="pl-k">=</span> $.template(tpl, {name <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kyo<span class="pl-pds">'</span></span>});
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(str1);
+
+
+<span class="pl-k">var</span> data2 <span class="pl-k">=</span> [{
+    name <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>kyo<span class="pl-pds">'</span></span>
+},{
+    name <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>iori<span class="pl-pds">'</span></span>
+}];
+<span class="pl-k">var</span> str2 <span class="pl-k">=</span> $.template(tpl, data2);
+<span class="pl-en">console</span><span class="pl-c1">.log</span>(str2);</pre></div>
+
+<h3>
+<a id="杂项" class="anchor" href="#%E6%9D%82%E9%A1%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>杂项</h3>
+
+<ol>
+<li>希望得到大家的支持，给个star吧</li>
+<li>QQ: 9169775 大家可以一起交流</li>
+<li>QQ群：8685914 </li>
+</ol>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/kyo4311/jquery.extend">Jquery.extend</a> is maintained by <a href="https://github.com/kyo4311">kyo4311</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
