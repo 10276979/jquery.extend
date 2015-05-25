@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>$().dataLazy()</title>
+  <script src="../../lib/jquery-1.11.3.min.js"></script>
+  <script src="../../lib/underscore-min.js"></script>
+  <script src="../../jquery.extend.js"></script>
+</head>
+<style>
+ul,li{margin: 0; padding: 0;}
+.box{
+    width: 998px;
+    height: 400px;
+    border: 1px solid #ccc;
+    margin: auto auto 10px auto;
+    overflow: hidden;
+}
+.box textarea{
+    display: none;
+}
+.box5{
+    overflow: hidden;zoom:1;
+}
+
+.box5 li{
+    float: left;
+    margin: 10px 0 0 10px;
+}
+</style>
+</head>
+<body>
+<div class="box">
+    <textarea>
+        <div class="box1"><img src="http://pic22.nipic.com/20120715/3247605_105802332102_2.jpg" width="100%" /></div>
+    </textarea>
+</div>
+<div class="box">
+    <textarea>
+        <div class="box2"><img src="http://pic.nipic.com/2008-07-15/2008715145556818_2.jpg" width="100%" /></div>
+    </textarea>
+</div>
+<div class="box">
+    <textarea>
+        <div class="box3"><img src="http://pic4.nipic.com/20090912/2125404_091659001543_2.jpg" width="100%" /></div>
+    </textarea>
+</div>
+<div class="box">
+    <textarea>
+        <div class="box4"><img src="http://pic27.nipic.com/20130325/9290407_135751671186_2.jpg" width="100%" /></div>
+    </textarea>
+</div>
+<div class="box">
+    <textarea>
+     <div class="box5">
+        <ul>
+            <li><img src="http://img.juimg.com/tuku/yulantu/120926/219049-12092612054324.jpg" width="180" height="180" /></li>
+            <li><img src="http://pic49.nipic.com/file/20140928/4949133_154446716000_2.jpg" width="180" height="180"/></li>
+            <li><img src="http://pic33.nipic.com/20130830/4187943_204109387108_2.jpg" width="180" height="180"/></li>
+            <li><img src="http://pic4.nipic.com/20090929/3419500_173433411961_2.jpg" width="180" height="180"/></li>
+            <li><img src="http://pic41.nipic.com/20140602/14680244_170255376100_2.jpg" width="180" height="180"/></li>
+        </ul>
+    </div>
+    <div>这些区块只有在滚动下来的时候，才会渲染内容。</div>
+    </textarea>
+</div>
+
+<script>
+    $('.box').datalazy();
+</script>
+</body>
+</html>
